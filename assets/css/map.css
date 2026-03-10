@@ -1,0 +1,131 @@
+/* =========================
+   Layout principale
+========================= */
+
+.custom-leaflet-widget{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.custom-leaflet-list{
+  flex: 0.5;
+  min-width: 300px;
+  display: block;
+}
+
+.custom-leaflet-mapwrap{
+  flex: 1.5;
+  min-width: 320px;
+  position: relative;
+}
+
+.custom-leaflet-map{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* =========================
+   Titolo lista
+========================= */
+
+.custom-leaflet-title-list{
+  margin-bottom: 20px;
+}
+
+/* =========================
+   Item lista
+========================= */
+
+.custom-leaflet-item{
+  cursor: pointer;
+  opacity: .7;
+  transition: opacity .2s ease;
+  box-sizing: border-box;
+  background: transparent;
+  padding-left: 15px;
+}
+
+/* wrapper interno: serve per animare senza muovere il bordo */
+.custom-leaflet-item-inner{
+  padding-left: 15px;
+  transition: transform .2s ease;
+}
+
+/* hover / active */
+.custom-leaflet-item:hover,
+.custom-leaflet-item.is-active{
+  opacity: 1;
+}
+
+.custom-leaflet-item:hover .custom-leaflet-item-inner,
+.custom-leaflet-item.is-active .custom-leaflet-item-inner{
+  transform: translateX(8px);
+}
+
+/* =========================
+   Testi
+========================= */
+
+.custom-leaflet-title h3{
+  margin: 0;
+}
+
+.custom-leaflet-subtitle p{
+  margin: 0;
+  opacity: .8;
+}
+
+/* =========================
+   Marker Pulse (Leaflet)
+========================= */
+
+.leaflet-pulse-marker{
+  width: 18px;
+  height: 18px;
+  background: #ffc440;
+  border-radius: 50%;
+  position: relative;
+  box-shadow: 0 0 0 2px rgba(0,0,0,0.25);
+}
+
+.leaflet-pulse-marker::after{
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid #ffc440;
+  animation: leafletPulse 1.4s ease-out infinite;
+}
+
+@keyframes leafletPulse{
+  0%{
+    transform: scale(1);
+    opacity: 1;
+  }
+  100%{
+    transform: scale(2.6);
+    opacity: 0;
+  }
+}
+
+/* =========================
+   Responsive (mobile)
+========================= */
+
+@media (max-width: 767px){
+  .custom-leaflet-widget{
+    flex-direction: column;
+  }
+	.custom-leaflet-widget {
+    display: block;
+	}
+
+  .custom-leaflet-list,
+  .custom-leaflet-mapwrap{
+    width: 100%;
+    min-width: 0;
+  }
+}
