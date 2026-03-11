@@ -55,9 +55,15 @@ function map_elementor_register_widgets($widgets_manager) {
 }
 add_action('elementor/widgets/widgets_registered', 'map_elementor_register_widgets');
 
-add_action('elementor/elements/categories_registered', function ($elements_manager) {
-    $elements_manager->add_category('custom', [
-        'title' => __('Custom', 'plugin-name'),
-        'icon'  => 'fa fa-plug',
-    ]);
-});
+// Register Custom Widget Category
+function add_elementor_widget_categories_map_zoom( $elements_manager ) {
+
+	$elements_manager->add_category(
+		'dc_cat',
+		[
+			'title' => esc_html__( 'DC Plugin', 'textdomain' ),
+			'icon' => 'fa fa-plug',
+		]
+	);
+}
+add_action( 'elementor/elements/categories_registered', 'add_elementor_widget_categories_map_zoom' );
