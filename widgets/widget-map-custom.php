@@ -10,7 +10,7 @@ class Widget_Map_Custom extends Widget_Base {
     public function get_name() { return 'leaflet_points'; }
     public function get_title() { return __('Mappa con lista', 'custom-widget'); }
     public function get_icon() { return 'eicon-google-maps'; }
-    public function get_categories() { return ['custom']; }
+    public function get_categories() { return ['dc_cat']; }
 
     public function get_script_depends() {
         return [ 'custom-map-js' ];
